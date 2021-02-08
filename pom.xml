@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.apdata.client</groupId>
 	<artifactId>apdata</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>scheduling-tasks</name>
 	<description>Time Shit Apontator</description>
 

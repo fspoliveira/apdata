@@ -18,19 +18,18 @@ public class ScheduledTasks {
 
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 	
-	@Autowired
+	@Autowired	
 	private RelogioVirtual relogioVirtual;
 
-	//Entrada as 09:30 am
-	@Scheduled(cron = "00 30 09 * * MON-FRI")
+	//Entrada as 12:02 UTC TIME
+	@Scheduled(cron = "00 02 12 * * MON-FRI")
 	public void checkIn() {
 		log.info("The time is now {}", dateFormat.format(new Date()));
-		relogioVirtual.callMarcacao();	
-		
+		relogioVirtual.callMarcacao();			
 	}
 	
-	//Saída as 18:30
-	@Scheduled(cron = "00 30 18 * * MON-FRI")
+	//Saída as 21:02 UTC TIME
+	@Scheduled(cron = "00 02 21 * * MON-FRI")
 	public void checkOut() {
 		log.info("The time is now {}", dateFormat.format(new Date()));
 		relogioVirtual.callMarcacao();	
