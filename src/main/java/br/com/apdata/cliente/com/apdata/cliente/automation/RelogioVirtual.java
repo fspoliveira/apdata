@@ -78,6 +78,8 @@ public class RelogioVirtual {
 		System.setProperty("webdriver.chrome.driver", currentDir);
 
 		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+		chromeOptions.addArguments("--no-sandbox"); // Bypass OS security model
 		chromeOptions.setHeadless(true);
 
 		driver = new ChromeDriver(chromeOptions);
