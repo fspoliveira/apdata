@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import br.com.apdata.cliente.calendar.AppDataCalendar;
 import br.com.apdata.cliente.com.apdata.cliente.system.OSValidator;
 
 @Service
@@ -30,21 +31,23 @@ public class RelogioVirtual {
 
 	private static WebDriver driver;
 
-	public void callMarcacao() {
+	public void callMarcacao() throws InterruptedException {
 
 		this.setup();
 		this.openPageAndConfirmCookies();
 
+		Thread.sleep(AppDataCalendar.returnDayOfWeek() * 1000);
+
 		log.info("Call marcação");
 
 		log.info("Preenche o usuário");
-		driver.findElement(By.id("ext-131")).sendKeys(USER);
+		driver.findElement(By.id("ext-133")).sendKeys(USER);
 
 		log.info("Preenche a senha");
-		driver.findElement(By.id("ext-133")).sendKeys(PASSWORD);
+		driver.findElement(By.id("ext-135")).sendKeys(PASSWORD);
 
 		log.info("Clica no botão Marcação");
-		driver.findElement(By.id("ext-135")).click();
+		driver.findElement(By.id("ext-137")).click();
 
 	}
 
