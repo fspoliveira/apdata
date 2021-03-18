@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 public class AppDataCalendar {
 
-	public static int returnDayOfWeek() {	
+	public static int returnDayOfWeek() {
 		return new GregorianCalendar().get(Calendar.DAY_OF_WEEK);
 	}
 }

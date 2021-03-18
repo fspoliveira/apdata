@@ -1,6 +1,7 @@
 package br.com.apdata.cliente.com.apdata.cliente.automation;
 
 import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -33,21 +34,26 @@ public class RelogioVirtual {
 
 	public void callMarcacao() throws InterruptedException {
 
+		log.info("ZzZzZzZzZZ por " + AppDataCalendar.returnDayOfWeek()
+				+ " minutos, pro apontamento nao ficar igual todos os dias");
+		
+		Thread.sleep(TimeUnit.MINUTES.toMillis(AppDataCalendar.returnDayOfWeek()));
+
 		this.setup();
 		this.openPageAndConfirmCookies();
 
-		Thread.sleep(AppDataCalendar.returnDayOfWeek() * 1000);
+		log.info("Call marcacao");
 
-		log.info("Call marcação");
-
-		log.info("Preenche o usuário");
+		log.info("Preenche o usuario");
 		driver.findElement(By.id("ext-133")).sendKeys(USER);
 
 		log.info("Preenche a senha");
 		driver.findElement(By.id("ext-135")).sendKeys(PASSWORD);
 
-		log.info("Clica no botão Marcação");
+		log.info("Clica no botão Marcacao");
 		driver.findElement(By.id("ext-137")).click();
+		
+		log.info("Marcacao feita com sucesso");
 
 	}
 
