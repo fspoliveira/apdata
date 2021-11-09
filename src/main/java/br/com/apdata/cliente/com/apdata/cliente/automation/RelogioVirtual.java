@@ -15,7 +15,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import br.com.apdata.cliente.calendar.AppDataCalendar;
-import br.com.apdata.cliente.com.apdata.cliente.system.OSValidator;
+import br.com.apdata.cliente.com.apdata.cliente.system.OSValidator;	
+
+
 
 @Service
 public class RelogioVirtual {
@@ -36,7 +38,7 @@ public class RelogioVirtual {
 
 		log.info("ZzZzZzZzZZ por " + AppDataCalendar.returnDayOfWeek()
 				+ " minutos, pro apontamento nao ficar igual todos os dias");
-		
+
 		Thread.sleep(TimeUnit.MINUTES.toMillis(AppDataCalendar.returnDayOfWeek()));
 
 		this.setup();
@@ -45,14 +47,14 @@ public class RelogioVirtual {
 		log.info("Call marcacao");
 
 		log.info("Preenche o usuario");
-		driver.findElement(By.id("ext-133")).sendKeys(USER);
+		driver.findElement(By.id("ext-134")).sendKeys(USER);
 
 		log.info("Preenche a senha");
-		driver.findElement(By.id("ext-135")).sendKeys(PASSWORD);
+		driver.findElement(By.id("ext-136")).sendKeys(PASSWORD);
 
 		log.info("Clica no botão Marcacao");
-		driver.findElement(By.id("ext-137")).click();
-		
+		driver.findElement(By.id("ext-138")).click();
+
 		log.info("Marcacao feita com sucesso");
 
 	}
@@ -64,7 +66,7 @@ public class RelogioVirtual {
 
 		// Accept Cookie LOL
 		moveToLastWindowsHandle();
-		log.info("Clica no botão confirmar preferências");
+		log.info("Clica no botao confirmar preferencias");
 		WebDriverWait wait = new WebDriverWait(driver, 20);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("button-1020")));
 
